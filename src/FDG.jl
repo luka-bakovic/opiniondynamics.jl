@@ -14,7 +14,7 @@ function runDynamics!(M::FrenchDeGroot, x0::AbstractVector, nsteps::Int)
     # mea culpa
     x0 = convert(Vector{Float64}, x0)
 
-    w = fdg.W * ones(size(fdg.W,2))
+    w = M.W * ones(size(M.W,2))
     D = LinearAlgebra.diagm(w)
     D .= LinearAlgebra.inv(D) * M.W
 
